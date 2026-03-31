@@ -24,33 +24,48 @@ h1, h2, h3 {
 header {
     background-color: var(--dark-blue);
     color: var(--white);
-    padding: 30px 20px;
+    padding: 20px;
+    position: relative;
+}
+
+.header-container {
+    display: flex;
+    flex-direction: column; /* Stacks everything vertically */
+    align-items: center;    /* Centers them horizontally */
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 15px;
+}
+
+.logo {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    height: 100px;
+    width: auto;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
     text-align: center;
 }
 
 nav {
-    background-color: var(--primary-blue);
-    padding: 15px 0;
     display: flex;
-    justify-content: center;
-    gap: 40px;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    gap: 30px;
 }
 
 nav a {
     text-decoration: none;
-    color: var(--dark-blue);
+    color: var(--white);
     font-weight: bold;
     font-size: 1.1rem;
     transition: color 0.3s ease;
 }
 
 nav a:hover {
-    color: var(--accent-green);
-    text-decoration: underline;
+    color: var(--accent-yellow);
 }
 
 main {
@@ -76,11 +91,6 @@ main {
     margin-bottom: 80px;
     padding: 20px;
     border-radius: 20px;
-    transition: background-color 0.3s;
-}
-
-.hole-section:hover {
-    background-color: var(--light-bg);
 }
 
 .hole-section.reverse {
@@ -94,7 +104,6 @@ main {
     object-fit: cover;
     border-radius: 15px;
     border: 5px solid var(--primary-blue);
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
 }
 
 .hole-text {
@@ -129,12 +138,14 @@ footer {
 }
 
 @media (max-width: 800px) {
+    .logo {
+        position: static; /* Moves logo above title on small screens */
+        margin-bottom: 10px;
+    }
     .hole-section, .hole-section.reverse {
         flex-direction: column;
-        gap: 20px;
         text-align: center;
     }
-
     .hole-section img {
         height: 250px;
     }
